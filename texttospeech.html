@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceScribe</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <link rel="stylesheet" href="texttospeech.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+<div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-3xl">
+
+    <h1 class="text-3xl font-bold text-center mb-2">VoiceScribe</h1>
+    <p class="text-center text-gray-500 mb-6">Speech to Text Transcription</p>
+
+    <div class="flex justify-center gap-4 mb-4">
+        <button id="startBtn"
+            class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full flex items-center disabled:opacity-50">
+            <i data-feather="mic" class="mr-2"></i> Start
+        </button>
+
+        <button id="stopBtn" disabled
+            class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full flex items-center disabled:opacity-50">
+            <i data-feather="square" class="mr-2"></i> Stop
+        </button>
+    </div>
+
+    <p id="status" class="text-center text-sm text-gray-500 mb-2">
+        Click Start to begin
+    </p>
+    <p id="timer" class="text-center font-mono hidden">00:00</p>
+
+    <textarea id="transcript" rows="8"
+        class="w-full border rounded-lg p-4 mt-4 focus:ring-2 focus:ring-indigo-500"
+        placeholder="Your speech will appear here..." readonly></textarea>
+
+    <div class="flex flex-wrap justify-between gap-2 mt-4">
+        <button id="copyBtn" class="bg-gray-200 px-4 py-2 rounded-lg flex items-center">
+            <i data-feather="copy" class="mr-2"></i> Copy
+        </button>
+        <button id="clearBtn" class="bg-gray-200 px-4 py-2 rounded-lg flex items-center">
+            <i data-feather="trash-2" class="mr-2"></i> Clear
+        </button>
+        <button id="downloadBtn" class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-lg flex items-center">
+            <i data-feather="download" class="mr-2"></i> Download
+        </button>
+    </div>
+
+</div>
+
+<script src="texttospeech.js" defer></script>
+<script>feather.replace();</script>
+
+</body>
+</html>
